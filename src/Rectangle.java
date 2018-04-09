@@ -1,18 +1,18 @@
-public class Rectangle
-  public int lenght;
+public class Rectangle {
+  public int length;
   public int width;
 
-  public Rectangle (int lenght, int width) {
-    this.lenght = lenght;
-    this.width.width = width;
+  public Rectangle (int length, int width) {
+    this.length = length;
+    this.width = width;
   }
 
   public int getArea() {
-    return lenght * width;
+    return length * width;
   }
 
-  public int get pErimeter() {
-    return 2 * (lenght + width);
+  public int getPerimeter() {
+    return 2 * (length + width);
   }
 }
 
