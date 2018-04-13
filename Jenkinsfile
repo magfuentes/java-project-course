@@ -9,6 +9,11 @@ pipeline {
        sayHello 'Awesome Student!'  
       }
     } 
+    stage('SAUDACAO'){
+     steps {
+       sh 'echo "Notification Time!" '
+     }
+    }
     stage ('Git Information') {
       agent any
 
@@ -36,6 +41,11 @@ pipeline {
   }
   
   post {
+    success {
+      emailext (
+         subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] RAN!",
+         body: """ '${env.JOB_NAME} [${env.BUILD_NUMBER}]' Ran!" :Check console output at ${env.JOB_NAME} [${env.BUILD_NUMBER}]/a>""", to: "magfuentes@gmail.com")
+    }
     always {
       archiveArtifacts artifacts: 'dist/*.jar ', fingerprint: true
     }
